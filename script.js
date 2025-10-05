@@ -24,9 +24,10 @@ function renderServices() {
   services.forEach((service, idx) => {
     serviceListEl.innerHTML += `
       <div class="service-item">
-        <span>${service.name} ₹${service.price}.00</span>
+        <span>${service.name} ${service.price}.00</span>
         <div>
-          <button onclick="addToCart(${idx})">Add Item+</button>
+          <button id="add-btn-${idx}" onclick="addToCart(${idx})">Add Item</button>
+          <button id="remove-btn-${idx}" onclick="removeFromCart(${idx})" style="display:none">Remove Item</button>
         </div>
       </div>`;
   });
@@ -38,12 +39,17 @@ function addToCart(index) {
   if (!cart.some(item => item.name === service.name)) {
     cart.push({...service});
     renderCart();
+    document.getElementById(`add-btn-${index}`).style.display = 'none';
+    document.getElementById(`remove-btn-${index}`).style.display = 'inline-block';
   }
 }
 
 function removeFromCart(index) {
   cart.splice(index, 1);
   renderCart();
+  document.getElementById(`add-btn-${index}`).style.display = 'inline-block';
+  document.getElementById(`remove-btn-${index}`).style.display = 'none';
+
 }
 
 function renderCart() {
