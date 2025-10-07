@@ -56,13 +56,11 @@ function renderCart() {
   cartTable.innerHTML = '';
   let total = 0;
   cart.forEach((item, idx) => {
-    cartTable.innerHTML += `
-      <tr>
-        <td>${idx + 1}</td>
-        <td>${item.name}</td>
-        <td>₹${item.price}.00</td>
-        <td><button onclick="removeFromCart(${idx})">Remove Item</button></td>
-      </tr>`;
+    cartTable.innerHTML += `<tr>
+    <td>${idx + 1}</td>
+    <td>${item.name}</td>
+    <td>₹${item.price}.00</td>
+    </tr>`;
     total += item.price;
   });
   totalAmountEl.textContent = total;
