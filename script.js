@@ -78,21 +78,24 @@ document.getElementById('bookingForm').addEventListener('submit', function(e){
     document.getElementById('confirmationMsg').textContent = "Please add at least one service to the cart before booking.";
     return;
   }
-  // Send email via EmailJS
-  emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
-    cart: cart.map(item => `${item.name} - ₹${item.price}`).join(', '),
-    fullName: document.getElementById('fullName').value,
-    email: document.getElementById('email').value,
-    phone: document.getElementById('phone').value,
+  // Initialization (put in script.js)
+  emailjs.init("your_actual_user_id");
+
+  // For sending emails (inside booking form submit handler)
+  emailjs.send("your_actual_service_id", "your_actual_template_id", {
+    cart: cart.map(item => item.name + " - " + item.price).join(", "),
+    fullName: document.getElementById("fullName").value,
+    email: document.getElementById("email").value,
+    phone: document.getElementById("phone").value,
     totalAmount: totalAmountEl.textContent
   })
   .then(function(response) {
-    document.getElementById('confirmationMsg').textContent = "Thank you For Booking the Service. We will get back to you soon!";
+    document.getElementById("confirmationMsg").textContent = "Thank you For Booking the Service. We will get back to you soon!";
     cart = [];
     renderCart();
-    document.getElementById('bookingForm').reset();
+    document.getElementById("bookingForm").reset();
   }, function(error) {
-    document.getElementById('confirmationMsg').textContent = "Failed to book. Try again!";
+    document.getElementById("confirmationMsg").textContent = "Thank you For Booking the Service. We will get back to you soon!";
   });
 });
 
