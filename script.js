@@ -1,6 +1,6 @@
 // EmailJS initialization (replace 'YOUR_USER_ID' with your actual user ID)
 (function(){
-  emailjs.init("YOUR_USER_ID");
+  emailjs.init("-cphDoc7kAMhchDH6");
 })();
 
 // List of services
@@ -79,10 +79,10 @@ document.getElementById('bookingForm').addEventListener('submit', function(e){
     return;
   }
   // Initialization (put in script.js)
-  emailjs.init("your_actual_user_id");
+  emailjs.init("-cphDoc7kAMhchDH6");
 
   // For sending emails (inside booking form submit handler)
-  emailjs.send("your_actual_service_id", "your_actual_template_id", {
+  emailjs.send("service_ckmwyrr", "template_bd9hqo5", {
     cart: cart.map(item => item.name + " - " + item.price).join(", "),
     fullName: document.getElementById("fullName").value,
     email: document.getElementById("email").value,
@@ -95,7 +95,7 @@ document.getElementById('bookingForm').addEventListener('submit', function(e){
     renderCart();
     document.getElementById("bookingForm").reset();
   }, function(error) {
-    document.getElementById("confirmationMsg").textContent = "Thank you For Booking the Service. We will get back to you soon!";
+    document.getElementById("confirmationMsg").textContent = "Failed to book. Try again!";
   });
 });
 
