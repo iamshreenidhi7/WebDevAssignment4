@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Laundry Services Web App</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- EmailJS CDN -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script type="text/javascript" 
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">Laundry<span>Express</span></div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+    <div class="username">Welcome, <span id="username">User</span></div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-left">
+      <h1>Revitalize Your Clothes with Expert Laundry Services!</h1>
+      <p>From premium dry cleaning to swift wash and fold, we deliver care and convenience. Schedule a pickup and rediscover the freshness of your clothes today!</p>
+      <button onclick="scrollToBooking()">Book a service today!</button>
+    </div>
+    <div class="hero-right">
+      <img src="Laundry.png" alt="Laundry Service">
+    </div>
+  </section>
+
+  <!-- Achievements Section -->
+  <section class="achievements">
+    <div>15+ Laundry Services</div>
+    <div>240+ Happy Customers</div>
+    <div>2+ Years Experience</div>
+  </section>
+
+  <!-- Services and Booking Section -->
+  <section id="services" class="booking-section">
+    <div class="services-left">
+      <h2>Our Services</h2>
+      <div class="service-list" id="serviceList">
+        <!-- Services rendered via JS -->
+      </div>
+      <div class="info">
+        <p>Add items to your cart to book!</p>
+      </div>
+    </div>
+    <div class="services-right">
+      <div class="cart">
+        <h3>Added Items</h3>
+        <table id="cartTable">
+          <!-- Dynamically populated -->
+        </table>
+        <div class="total">Total Amount: ₹<span id="totalAmount">0</span></div>
+      </div>
+      <div class="booking-form">
+        <h3>Book Now</h3>
+        <form id="bookingForm">
+          <input type="text" id="fullName" placeholder="Full Name" required>
+          <input type="email" id="email" placeholder="Email ID" required>
+          <input type="tel" id="phone" placeholder="Phone Number" required>
+          <button type="submit">Book Now</button>
+        </form>
+        <div id="confirmationMsg"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quality Description Section -->
+  <section class="quality">
+    <h2>Why Choose Us?</h2>
+    <ul>
+      <li>Premium services</li>
+      <li>Quick support</li>
+      <li>Timely delivery</li>
+      <li>Affordable prices</li>
+    </ul>
+  </section>
+
+  <!-- Newsletter Subscription Section -->
+  <section class="newsletter">
+    <h2>Subscribe to Our Newsletter</h2>
+    <form id="newsletterForm">
+      <input type="text" id="newsFullName" placeholder="Full Name" required>
+      <input type="email" id="newsEmail" placeholder="Email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <div id="subscribeMsg"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-logo">LaundryExpress</div>
+    <div class="footer-links">
+      <a href="#about">About Us</a>
+      <a href="#faq">FAQs</a>
+      <a href="#terms">Terms of Service</a>
+      <a href="#contact">Contact Us</a>
+    </div>
+    <div class="social-icons">
+      <a href="#"><img src="Facebook.png" alt="Facebook"></a>
+      <a href="#"><img src="Twitter.png" alt="Twitter"></a>
+      <a href="#"><img src="Instagram.jpeg" alt="Instagram"></a>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
